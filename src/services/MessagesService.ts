@@ -30,10 +30,10 @@ class MessagesService {
 
   async listByUser(user_id: string) {
     const list = await this.messagesRepository.find({
-      where: {user_id},
+      where: { user_id },
       relations: ["user"]  //puxa também as informações do user
     })
-
+    
     return list;
   }
 }

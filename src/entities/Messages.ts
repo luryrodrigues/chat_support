@@ -6,7 +6,7 @@ import { User } from "./User";
 class Messages {
 
   @PrimaryColumn()
-  readonly id: string;
+  id: string;
 
   @Column()
   admin_id: string;
@@ -25,7 +25,7 @@ class Messages {
   created_at: Date;
 
   constructor(){
-    if(this.id) {
+    if(!this.id) {
       this.id = uuid();
     }
   }
