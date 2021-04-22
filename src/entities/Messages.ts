@@ -6,7 +6,7 @@ import { User } from "./User";
 class Messages {
 
   @PrimaryColumn()
-  id: string;
+  readonly id: string;
 
   @Column()
   admin_id: string;
