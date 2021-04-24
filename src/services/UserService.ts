@@ -12,17 +12,15 @@ class UserService {
 
   async create(email: string) {
 
-    const userRepository = getCustomRepository(UserRepository);
-
-    const userAlreadyExists = await userRepository.findOne({email})
+    const userAlreadyExists = await this.userRepository.findOne({email})
 
     if(userAlreadyExists){
       return userAlreadyExists;
     }
 
-    const user = userRepository.create({email}) //cria o user
+    const user = this.userRepository.create({email}) //cria o user
 
-    await userRepository.save(user); //salva no BD
+    await this.userRepository.save(user); //salva no BD
 
     return user; //retorna o user criado
   }
